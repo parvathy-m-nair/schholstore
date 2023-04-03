@@ -1,0 +1,79 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+<body bgcolor="teal;" >
+<div>
+<!--    <center>-->
+<!--<img src="{% static 'img/logo.png' %}" alt="logimage" width="100px;" > </center></div>-->
+<div align="center"><h1>REGISTRATION FORM</h1></div>
+
+
+<div class="wrapper" >
+        <div class="form-left">
+            <h2 class="text-uppercase">A.J Schools</h2>
+
+            <p class="text" >
+                <div class="center">
+                <span> Sign IN</span>
+            </p>
+            </div>
+            <div class="form-field">
+                <a href="{% url 'Store:login' %}"><input type="submit" class="account" value="SignIn"></a>
+            </div>
+            {% for msg1 in messages %}
+            <div class="alert alert-primary" role="alert">
+                {{msg1}}
+            </div>
+             {% endfor %}
+        </div>
+      </div>
+
+        <form method="post" >
+            {% csrf_token %}
+            <div align="center"  ><h2 class="text-uppercase"></h2> </div>
+            <div class="mb-3">
+                <label>Username</label>
+                <input type="text" class="input-field" name="username" required>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 mb-3">
+                    <label>First Name</label>
+                    <input type="text" name="first_name" id="first_name" class="input-field">
+                </div>
+                <div class="col-sm-6 mb-3">
+                    <label>Last Name</label>
+                    <input type="text" name="last_name" id="last_name" class="input-field">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Your Email</label>
+                <input type="email" class="input-field" name="email" required>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 mb-3">
+                    <label>Password</label>
+                    <input type="password" name="password" id="pwd" class="input-field">
+                </div>
+                <div class="col-sm-6 mb-3">
+                    <label>Confirm password</label>
+                    <input type="password" name="password1" id="cpwd" class="input-field">
+                </div>
+            </div>
+            <div class="mb-3" align="center">
+                <label class="option">I agree to the <a href="#">Terms and Conditions</a>
+                    <input type="checkbox" checked>
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div class="form-field" align="center">
+
+                <button type="submit" class="register" style="background:lime;">Register</button>
+            </div>
+        </form>
+</body>
+    </div>
+
+
+
+{% endblock %}

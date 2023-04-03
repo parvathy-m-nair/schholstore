@@ -1,0 +1,70 @@
+{% extends 'home.html' %}
+
+{% block content %}
+{% load static %}
+
+<section class="vh-100">
+
+  <div class=" container py-5 h-50">
+   <div class="row d-flex justify-content-center align-items-center h-100">
+     <div class=" col col-xl-6" style="">
+       <div class="card" style="box-shadow: 0 8px 20px 0px #800000;border-radius: 1px;">
+          <div class="row g-0">
+            <div class="col-sm-2"></div>
+              <div class="col-sm-8 align-items-center">
+                <div class="card-body p-1 p-lg-2 text-black">
+
+                  <form  method="post" >
+                    {% csrf_token %}
+                    <div align="center">
+                      <p style="#FFC0CB" >
+                      <h1 class="heading-name h1 fw-bold mb-0 " >A.J Schools</h1></h>
+                      </p>
+                    </div>
+                    <div align="center">
+                    <h1 class="fw-normal mb-3 pb-3 text-muted" style="letter-spacing: 2px;">SignIn</h1>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <div align="center">
+                      <p>
+                      <input type="text" id="form2Example17" class="form-control form-control-lg" name="username" placeholder="Username" />
+                   </p>
+                            </div>
+                    </div>
+
+
+                    <div class="form-outline mb-4">
+                        <div align="center">
+                      <input type="password" id="form2Example27" class="form-control form-control-lg" name="password" placeholder="Password"/>
+                    </div>
+                    </div>
+                  <p>
+                    <div class="pt-1 mb-4">
+                    <div align="center">
+                      <button class="col-sm-12 btn btn-dark btn-lg btn-block" type="submit" style="font:18pt Helvetica; background:green">Login</button>
+                    </p>
+
+                    </div></div>
+                        <div align="center">
+
+                    <p class="small text-center" style="color: #393f81;">Don't have an account?
+                      <a href="{% url 'Store:register' %}" style="color: lime;text-decoration:none">Register here</a>
+                    </p>
+                        </div>
+                    {% for msg1 in messages %}
+                    <div class="alert alert-primary" role="alert">
+                      {{msg1}}
+                    </div>
+                    {% endfor %}
+
+                  </form>
+                </div>
+              </div>
+            <div class="col-sm-2 col-lg-7 d-flex align-items-center"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
